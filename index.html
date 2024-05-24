@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mankeil's Portfolio</title>
+    <style>
+        /* FONTS */
+
+@font-face {
+    font-family: 'OCRAExtended';
+    src: url('./misc/OCRAEXT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.vt323-regular {
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* COLOUR PALETTE */
+
+.beige {
+    background-color: #ffe3c1ff;
+}
+
+.yellow {
+    background-color: #EFCF4A;
+}
+
+.orange {
+    background-color: #D95525;
+}
+
+.red {
+    background-color: #CC3B2C;
+}
+
+.purple {
+    background-color: #9D2C44;
+}
+
+.Dpurple {
+    background-color: #602F44;
+}
+
+/* PAGE WIDE SETTINGS */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffe3c1ff;
+}
+
+/* SPLASH PAGE */
+
+.splashPage {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.header {
+    height: 10rem;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu>a {
+    color: black;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    text-decoration: underline;
+    font-size: 1.4rem;
+    margin-left: 1.5rem;
+}
+
+.profilePicture {
+    border-radius: 50%;
+    width: 6rem;
+}
+
+.hotbar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hotbar>div {
+    margin-left: 1em;
+}
+
+.langMenu {
+    margin-top: 25px;
+    border-radius: 5%;
+    display: none;
+    position: absolute;
+    right:1.5em;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 4px 6px #9D2C44;
+    padding: 12px 16px;
+    z-index: 1;
+    font-family: "VT323", monospace;
+}
+
+.dropdown:hover + .langMenu {
+    display: block;
+}
+
+.langMenu:hover {
+    display:block;
+}
+
+.langMenu a:hover {
+    background-color: #f1f1f1;
+    color: blue;
+}
+
+.langMenu a {
+    display: block;
+}
+
+.titleBlock {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    font-family: "OCRAExtended", monospace;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.title>h1 {
+    font-size: 3rem;
+}
+
+.title>h2 {
+    font-size: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5em;
+}
+
+.menu > a:hover{
+    color:blue;
+}
+
+/* CONTENT SECTION */
+
+.content {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.section>h1 {
+    font-family: "OCRAExtended", monospace;
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.projectList {
+    max-width: 70%;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+    grid-gap: 2em;
+    margin-top: 40px;
+}
+
+.projectList>.card {
+    padding: 2em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 15%;
+    box-shadow: #EFCF4A 3px 4px, #D95525 6px 8px, #CC3B2C 9px 12px, #9D2C44 12px 16px, #602F44 15px 20px,
+        #EFCF4A -3px -4px, #D95525 -6px -8px, #CC3B2C -9px -12px, #9D2C44 -12px -16px, #602F44 -15px -20px;
+    font-family: arial;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: transform .2s linear;
+    min-height: 20em;
+}
+
+.projectList>.card>.description {
+    margin-top: 1em;
+}
+
+.projectList>.card:hover {
+    transform: translateY(-7px);
+}
+
+.card>h1 {
+    align-self: center;
+    font-family: "OCRAExtended", monospace;
+    font-size: 1.5rem;
+}
+
+.skillzGrill {
+    max-width: 450px;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.skillzGrill>.card {
+    font-family: "OCRAExtended", monospace;
+    border-radius: 8px;
+    margin: .5em;
+    display: block;
+    padding: .8em 1.4em;
+    font-weight: 500;
+    font-size: .9rem;
+    transition: transform .2s ease-in-out;
+    background-color: #EFCF4A;
+}
+
+.skillzGrill > .card:hover{
+    transform: translateY(-4px);
+}
+
+#email{
+    margin-top: 2.5em;
+    font-family: "OCRAExtended", monospace;
+    border-radius: 8px;
+    display: block;
+    padding: .8em 1.4em;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform .2s ease-in-out;
+}
+
+#email:hover{
+    color:white;
+    background-color:#CC3B2C;
+    text-decoration: none;
+}
+
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="splashPage">
+        <header class="header">
+            <a href="mankeil.github.io/en/index.html"><img src="../imgs/mankeil.jpg" class="profilePicture"></a>
+            <div class="hotbar">
+                <div><a href="https://github.com/mankeil"><img src="../imgs/github.svg" ></i> </a></div>
+                <div><a href=""><img src="../imgs/linkedin.svg"></a></div>
+                <div>|</div>
+                <div class="dropdown">
+                    <img src="../imgs/languages.svg">
+                </div>
+                <div class="langMenu">
+                    <a href="https://mankeil.github.io/en/index.html">English</a>
+                    <a href="https://mankeil.github.io/ita/index.html">Italiano</a>
+                    <a href="https://mankeil.github.io/fur/index.html">Furlan</a>
+                </div>
+            </div>
+        </header>
+        <div class="titleBlock">
+            <div class="title">
+                <h1>Hi, <br> I'm <b style="text-decoration:underline;text-decoration-style:dashed;text-decoration-color: #CC3B2C;">Mankeil</b></h1>
+                <h2>Here's what <br> I've been up to</h2>
+            </div>
+            <div class="menu">
+                <a href="#Projects">Projects</a>
+                <a href="#Skills">Skills</a>
+                <a href="#Contacts">Contacts</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="section">
+            <h1 id="Projects" style="background-color: #EFCF4A;">Projects</h1>
+            <div class="projectList">
+                <div class="card beige">
+                    <h1>Light Chess</h1>
+                    <p class="description">A lightweight game written in C++ <br> Lorem Ipsum Iti Salet, ato es alum, quanto lors atto</p>
+                </div>
+                <div class="card beige">
+                    <h1>Project 2</h1>
+                    <p class="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non eleifend turpis, eget
+                        consequat erat. Aenean tincidunt quam eget magna sodales porta.</p>
+                </div>
+                <div class="card beige">
+                    <h1>Project 3</h1>
+                    <p class="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non eleifend turpis, eget
+                        consequat erat. Aenean tincidunt quam eget magna sodales porta.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h1 id="Skills" style="background-color: #CC3B2C;">Skills</h1>
+            <div class="skillzGrill">
+                <div class="card">
+                    C++
+                </div>
+                <div class="card">
+                    R
+                </div>
+                <div class="card">
+                    BASH
+                </div>
+                <div class="card">
+                    GIT
+                </div>
+                <div class="card">
+                    PHP
+                </div>
+                <div class="card">
+                    Scheme
+                </div>
+                <div class="card">
+                    Java
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h1 id="Contacts" style="background-color: hsl(347, 56%, 39%); ">Contacts</h1>
+            <a class="orange" id="email" style="text-decoration: none;" href="mailto:nomail@isp.com">
+                Send me an e-mail
+            </a>
+        </div>
+    </div>
+    <div class="footer" style="font-family: 'VT323'">
+        Made by Mankeil
+    </div>
+</body>
+
+</html>
